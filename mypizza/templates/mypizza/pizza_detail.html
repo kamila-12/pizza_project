@@ -1,0 +1,14 @@
+{% extends 'mypizza/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h2>Pizza Detail</h2>
+
+<img src="{{ pizza.image.url }}" alt="{{ pizza.title }}" style="max-width: 15%;">
+<h3><a href="{% url 'pizza_detail' pk=pizza.pk %}">{{ pizza.title }}</a></h3>
+<p>Price: {{ pizza.price }} som</p>
+<p>Size: {{ pizza.size_pizza }}</p>
+<p>{{ pizza.ingredients }}</p>
+
+{% endblock %}

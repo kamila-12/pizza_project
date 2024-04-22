@@ -8,4 +8,4 @@ class Customer(models.Model):
     phone_number = PhoneNumberField(unique=True)
     address = models.TextField(max_length=1000)
     
-    
+ 
