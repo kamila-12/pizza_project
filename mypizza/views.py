@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from .models import Pizza
 from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-
-class PizzaListView(ListView):
+class PizzaListView(LoginRequiredMixin, ListView):
     model = Pizza
     template_name = 'mypizza/pizza_list.html'
     
