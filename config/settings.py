@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'mypizza',
     'phonenumber_field',
     'customer',
+    'orders'
 ]
 
 

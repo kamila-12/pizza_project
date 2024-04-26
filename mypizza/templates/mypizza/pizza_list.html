@@ -7,11 +7,15 @@
 <h2>Pizza List</h2>
 
 <ul>
+    {% comment %} {% if user.is_authenticated %}
+        <h3 {{ user.username }}> </h3>
+    {%else%}
+        <a href="">Log in</a> {% endcomment %}
     {% for pizza in pizza_list %}
   
         <img src="{{ pizza.image.url }}" style="max-width: 15%;">
         <h3><a href="{% url 'pizza_detail' pk=pizza.pk %}">{{ pizza.title }}</a></h3>
-        <p>Price: ${{ pizza.price }}</p>
+        <p>Цена: {{ pizza.price }} сом</p>
     
     {% endfor %}
 </ul>
