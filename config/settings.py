@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'customer',
     'orders',
-    'employees'
+    'employees',
+    'delivery'
 ]
 
 
