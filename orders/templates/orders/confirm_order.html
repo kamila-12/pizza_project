@@ -10,7 +10,7 @@
       <h5 class="card-title">Your Order</h5>
       <p class="card-text">Pizza: {{ order.pizza.title }}</p>
       <p class="card-text">Size: {{ order.pizza.size_pizza }}</p>
-      <p class="card-text">Price: ${{ order.pizza.price }}</p>
+      <p class="card-text">Price: {{ order.pizza.price }}</p>
       <hr>
       <h5 class="card-title">Delivery Information</h5>
       <p class="card-text">Name: {{ order.first_name }} {{ order.last_name }}</p>

@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    
     <title>{% block title %}My Pizza Shop{% endblock %}</title>
 </head>
 <body>
@@ -12,10 +14,25 @@
         <h1>Welcome to My Pizza Shop</h1>
         <nav>
             <ul>
-                <a href="{% url 'pizza_list' %}"></a>
+                <a href="{% url 'mypizza:pizza_list' %}"></a>
             </ul>
         </nav>
     </header>
+    <div id="subheader">
+        <div class="cart">
+          {% with total_items=cart|length %}
+            {% if total_items > 0 %}
+              Ваша корзина:
+              <a href="{% url "cart:cart_detail" %}">
+                {{ total_items }} {{ total_items|pluralize }},
+                {{ cart.get_total_price }} сом
+              </a>
+            {% elif not order %}
+              Your cart is empty.
+            {% endif %}
+          {% endwith %}
+        </div>
+      </div>
     
     <main>
         {% block content %}

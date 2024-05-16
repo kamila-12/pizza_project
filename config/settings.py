@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'customer',
     'orders',
     'employees',
-    'delivery'
+    'delivery',
+    'cart',
 ]
 
 
@@ -143,3 +144,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Cart session ID
+CART_SESSION_ID = 'cart'

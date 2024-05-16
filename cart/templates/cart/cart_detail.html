@@ -1,0 +1,39 @@
+
+{% extends 'mypizza/base.html' %}
+{% load static %}
+
+{% block title %}
+    Ваша корзина
+{% endblock %}
+
+{% block content %}
+    <h1>Ваша корзина</h1>
+    <table class="cart">
+        <thead>
+            <tr>
+                <th>Изображение</th>
+                <th>Пицца</th>
+                <th>Цена</th>
+        
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart %}
+                <tr>
+                    <td><img src="{{ item.pizza.image.url }}" alt="{{ item.pizza.title }}" style="max-width: 100px;"></td>
+                    <td>{{ item.pizza.title }}</td>
+                    <td>{{ item.pizza.price }}</td>
+                </tr>
+                <td>
+                    <form action="{% url 'cart:cart_remove' item.pizza.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            
+    </table>
+    <p><a href="{% url 'mypizza:pizza_list' %}" class="button light">Продолжить покупки</a></p>
+{% endblock %}
+

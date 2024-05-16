@@ -2,16 +2,15 @@
 {% load static %}
 
 {% block content %}
+    <h2>{{ pizza.title }}</h2>
+    <img src="{{ pizza.image.url }}" alt="{{ pizza.title }}" style="max-width: 15%;">
+    <p>Цена: {{ pizza.price }} сом</p>
+    <p>Размер: {{ pizza.size_pizza }}</p>
+    <p>Ингредиенты: {{ pizza.ingredients }}</p>
 
-<h2>Pizza Detail</h2>
-
-<img src="{{ pizza.image.url }}" alt="{{ pizza.title }}" style="max-width: 15%;">
-<h3><a href="{% url 'pizza_detail' pk=pizza.pk %}">{{ pizza.title }}</a></h3>
-<p>Цена: {{ pizza.price }} сом</p>
-<p>Размер: {{ pizza.size_pizza }}</p>
-<p>{{ pizza.ingredients }}</p>
-
-<a href="{% url 'orders:order_pizza' pizza_id=pizza.pk %}" class="btn btn-primary">Заказать</a>
-
-
+    <form action="{% url 'cart:cart_add' pizza.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Добавить в корзину">
+    </form>
 {% endblock %}
+
