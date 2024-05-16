@@ -24,6 +24,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cart/', include('cart.urls', namespace='cart')),
-    path('', include('mypizza.urls', namespace='mypizza')),
-    path('orders/', include('orders.urls', namespace = 'orders'))
+    path('orders/', include('orders.urls', namespace = 'orders')),
+    path('', include('mypizza.urls', namespace='mypizza'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
