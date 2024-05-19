@@ -2,15 +2,16 @@
 {% load static %}
 
 {% block content %}
-    <h2>{{ pizza.title }}</h2>
-    <img src="{{ pizza.image.url }}" alt="{{ pizza.title }}" style="max-width: 15%;">
-    <p>Цена: {{ pizza.price }} сом</p>
-    <p>Размер: {{ pizza.size_pizza }}</p>
-    <p>Ингредиенты: {{ pizza.ingredients }}</p>
+    <div style="margin-left: 40px;">
+        <h2>{{ pizza.title }}</h2>
+        <img src="{{ pizza.image.url }}" alt="{{ pizza.title }}" style="max-width: 15%;">
+        <p>Цена: {{ pizza.price }} сом</p>
+        <p>Размер: {{ pizza.size_pizza }}</p>
+        <p>Ингредиенты: {{ pizza.ingredients }}</p>
 
-    <form action="{% url 'cart:cart_add' pizza.id %}" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Добавить в корзину">
-    </form>
+        <form action="{% url 'cart:cart_add' pizza.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Добавить в корзину">
+        </form>
+    </div>
 {% endblock %}
-
